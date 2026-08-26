@@ -1,8 +1,9 @@
 node_modules
+.git
+.wrangler
 wrangler.toml
 wrangler.jsonc
 package.json
 package-lock.json
 .gitignore
-.git
-.wrangler
+.assetsignore

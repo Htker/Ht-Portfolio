@@ -1,0 +1,12 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "ht-portfolio",
+  "compatibility_date": "2026-08-25",
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "directory": ".",
+    "not_found_page": "404.html"
+  }
+}
