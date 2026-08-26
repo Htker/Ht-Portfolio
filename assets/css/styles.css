@@ -710,3 +710,278 @@ img {
     background-color: var(--first-color);
     left: 66.6%;
 }
+
+.portfolio-shell {
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+}
+
+.portfolio-page,
+.project-page,
+.admin-panel {
+    width: 100%;
+}
+
+.section__header--compact {
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.portfolio__filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.portfolio__filter {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6rem 1rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.02);
+    color: var(--white-color);
+    font-size: 0.8rem;
+    transition: all 0.2s ease;
+}
+
+.portfolio__filter.is-active,
+.portfolio__filter:hover {
+    background: var(--first-color);
+    border-color: transparent;
+}
+
+.portfolio__grid--full {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.portfolio__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.25rem;
+}
+
+.portfolio__tags span {
+    display: inline-block;
+    padding: 0.4rem 0.7rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 0.68rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.portfolio__empty {
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.02);
+    text-align: center;
+}
+
+.project-page {
+    display: grid;
+    gap: 1.5rem;
+    padding-top: 1rem;
+}
+
+.project-page__header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.project-page__back,
+.project-page__nav-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--white-color);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+    padding: 0.65rem 1rem;
+    font-size: 0.8rem;
+}
+
+.project-page__hero img {
+    width: 100%;
+    height: clamp(260px, 44vw, 700px);
+    object-fit: cover;
+    border-radius: 1.25rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.project-page__meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+}
+
+.project-page__meta>div {
+    display: grid;
+    gap: 0.4rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.project-page__meta span {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.project-page__summary {
+    display: grid;
+    gap: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.7;
+}
+
+.project-page__block {
+    display: grid;
+    gap: 0.8rem;
+    padding: 1.25rem;
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.project-page__block img,
+.project-page__gallery-item img {
+    width: 100%;
+    border-radius: 1rem;
+    object-fit: cover;
+}
+
+.project-page__gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+}
+
+.project-page__gallery-item {
+    overflow: hidden;
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.project-page__nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding-top: 0.5rem;
+}
+
+.project-not-found {
+    display: grid;
+    gap: 1rem;
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.admin-panel {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.admin__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+.admin__card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1rem;
+    padding: 1.25rem;
+}
+
+.admin__card--wide {
+    width: 100%;
+}
+
+.admin__form {
+    display: grid;
+    gap: 0.9rem;
+}
+
+.admin__form label {
+    display: grid;
+    gap: 0.45rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.85rem;
+}
+
+.admin__form input,
+.admin__form textarea,
+.admin__form select {
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(0, 0, 0, 0.15);
+    color: var(--white-color);
+    border-radius: 0.7rem;
+    padding: 0.75rem 0.9rem;
+    font: inherit;
+}
+
+.admin__category-list {
+    margin-top: 1rem;
+    display: grid;
+    gap: 0.65rem;
+}
+
+.admin__category-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 0.75rem 0.9rem;
+    border-radius: 0.8rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.admin__table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.admin__table th,
+.admin__table td {
+    text-align: left;
+    padding: 0.85rem 0.7rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.admin__action {
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--white-color);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 999px;
+    padding: 0.45rem 0.7rem;
+    cursor: pointer;
+    margin-right: 0.4rem;
+}
+
+.admin__action--danger {
+    border-color: rgba(214, 75, 61, 0.5);
+    color: #ffb0a6;
+}
+
+@media screen and (max-width: 768px) {
+    .project-page__header,
+    .project-page__nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
