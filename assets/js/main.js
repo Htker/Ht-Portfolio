@@ -1,4 +1,4 @@
-const STORAGE_KEY = 'ht_portfolio_state_v1';
+﻿const STORAGE_KEY = 'ht_portfolio_state_v1';
 const sectionOrder = ['home', 'about', 'services', 'skills', 'portfolio', 'experience', 'contact'];
 
 const slugify = (value = '') => value.toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
@@ -29,7 +29,7 @@ const getPortfolioState = () => {
         projects: (window.portfolioProjects || []).map((project, index) => ({
             ...project,
             status: project.status || 'published',
-            order: project.order ? ? index + 1,
+            order: project.order ? ? (index + 1),
             categorySlug: project.categorySlug || slugify(project.category || 'Autres')
         }))
     };
@@ -140,7 +140,7 @@ const renderHomePage = async() => {
 
     for (const sectionName of sectionOrder) {
         try {
-            const response = await fetch(`sections/${sectionName}.html`);
+            const response = await fetch(`/sections/${sectionName}.html`);
             if (!response.ok) {
                 throw new Error(`Section ${sectionName} introuvable.`);
             }
@@ -163,7 +163,7 @@ const renderStaticSection = async(routeName) => {
     }
 
     try {
-        const response = await fetch(`sections/${routeName}.html`);
+        const response = await fetch(`/sections/${routeName}.html`);
         if (!response.ok) {
             throw new Error(`Section ${routeName} introuvable.`);
         }
@@ -418,7 +418,10 @@ const renderAdminPage = () => {
                                 Tags
                                 <input type="text" name="tags" placeholder="Branding, Design, Packaging">
                             </label>
-                            <button type="submit" class="portfolio__button">Enregistrer</button>
+                            <div class="admin__form-actions">
+                                <button type="submit" class="portfolio__button">Enregistrer</button>
+                                <button type="button" class="admin__button admin__button--secondary" id="project-form-cancel" hidden>Annuler</button>
+                            </div>
                         </form>
                     </div>
 
@@ -458,6 +461,28 @@ const renderAdminPage = () => {
 
     const projectForm = document.getElementById('project-form');
     const categoryForm = document.getElementById('category-form');
+    const projectSubmitButton = projectForm?.querySelector('button[type="submit"]');
+    const projectCancelButton = document.getElementById('project-form-cancel');
+
+    const resetProjectFormState = () => {
+        if (!projectForm) {
+            return;
+        }
+
+        projectForm.reset();
+        projectForm.elements['project-id'].value = '';
+        projectForm.elements.year.value = '2026';
+        projectForm.elements.status.value = 'published';
+        projectForm.elements.order.value = '1';
+
+        if (projectSubmitButton) {
+            projectSubmitButton.textContent = 'Enregistrer';
+        }
+
+        if (projectCancelButton) {
+            projectCancelButton.hidden = true;
+        }
+    };
 
     projectForm.addEventListener('submit', (event) => {
         event.preventDefault();
@@ -492,7 +517,13 @@ const renderAdminPage = () => {
         }
 
         savePortfolioState(state);
+        resetProjectFormState();
         renderAdminPage();
+    });
+
+    projectCancelButton?.addEventListener('click', () => {
+        resetProjectFormState();
+        projectForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
 
     categoryForm.addEventListener('submit', (event) => {
@@ -550,6 +581,15 @@ const renderAdminPage = () => {
             form.elements.description.value = project.description || project.summary || '';
             form.elements.coverImage.value = project.coverImage || project.logo || '';
             form.elements.tags.value = (project.tags || []).join(', ');
+
+            if (projectSubmitButton) {
+                projectSubmitButton.textContent = 'Mettre à jour';
+            }
+
+            if (projectCancelButton) {
+                projectCancelButton.hidden = false;
+            }
+
             form.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
     });

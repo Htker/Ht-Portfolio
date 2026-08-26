@@ -44,6 +44,23 @@ body {
     color: var(--white-color);
     font-weight: 700;
     overflow-x: hidden;
+    line-height: 1.6;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+a:focus-visible {
+    outline: 2px solid rgba(240, 179, 74, 0.9);
+    outline-offset: 2px;
 }
 
 h1,
@@ -390,6 +407,27 @@ img {
     box-shadow: 0 12px 24px rgba(214, 75, 61, 0.28);
 }
 
+.admin__button {
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 999px;
+    padding: 0.75rem 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--white-color);
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.admin__button:hover,
+.portfolio__button:hover {
+    transform: translateY(-2px);
+}
+
+.admin__button--secondary {
+    background: transparent;
+    border-color: rgba(255, 255, 255, 0.16);
+}
+
 .portfolio__button:hover {
     transform: translateY(-2px);
     opacity: 0.98;
@@ -602,16 +640,46 @@ img {
         position: fixed;
         top: -100%;
         left: 0;
-        background-image: linear-gradient(var(--black-color), var(--first-color));
+        background: rgba(9, 9, 9, 0.96);
+        backdrop-filter: blur(16px);
         width: 100%;
-        height: 45%;
-        padding: 1.5rem;
-        border-radius: 0 0 1rem 1rem;
+        height: auto;
+        padding: 1.25rem 1rem 1.5rem;
+        border-radius: 0 0 1.25rem 1.25rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 18px 30px rgba(0, 0, 0, 0.28);
         transition: .5s;
+    }
+    .nav__list {
+        display: grid;
+        gap: 0.45rem;
+        padding-top: 0.5rem;
+    }
+    .nav__item {
+        margin-bottom: 0;
+    }
+    .nav__link {
+        display: block;
+        width: 100%;
+        padding: 0.8rem 0.9rem;
+        border-radius: 0.8rem;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.06);
     }
     .home {
         row-gap: 1.5rem;
         padding-top: 1rem;
+    }
+    .home__information {
+        padding-left: 1rem;
+    }
+    .home__actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .home__button {
+        width: 100%;
+        text-align: center;
     }
     .home__img {
         position: relative;
@@ -626,6 +694,17 @@ img {
     }
     .home__social-icon {
         margin-bottom: 1.5rem;
+    }
+    .admin__table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+    }
+    .admin__card {
+        padding: 1rem;
+    }
+    .admin__form-actions {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -689,26 +768,26 @@ img {
 }
 
 .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    position: fixed;
+    inset: 0 auto auto 0;
+    width: 33.333%;
+    height: 100vh;
     z-index: var(--z-modal);
+    pointer-events: none;
+    background-color: var(--first-color);
+    transform: translateY(0);
 }
 
 .first {
-    background-color: var(--first-color);
+    left: 0;
 }
 
 .second {
-    background-color: var(--first-color);
-    left: 33.3%;
+    left: 33.333%;
 }
 
 .third {
-    background-color: var(--first-color);
-    left: 66.6%;
+    left: 66.666%;
 }
 
 .portfolio-shell {
@@ -931,6 +1010,25 @@ img {
     border-radius: 0.7rem;
     padding: 0.75rem 0.9rem;
     font: inherit;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.admin__form input:hover,
+.admin__form textarea:hover,
+.admin__form select:hover,
+.admin__form input:focus,
+.admin__form textarea:focus,
+.admin__form select:focus {
+    border-color: rgba(214, 75, 61, 0.55);
+    box-shadow: 0 0 0 3px rgba(214, 75, 61, 0.12);
+    background: rgba(17, 17, 18, 0.78);
+}
+
+.admin__form-actions {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.75rem;
+    margin-top: 0.25rem;
 }
 
 .admin__category-list {
