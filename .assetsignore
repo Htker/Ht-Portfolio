@@ -4,3 +4,5 @@ wrangler.jsonc
 package.json
 package-lock.json
 .gitignore
+.git
+.wrangler
