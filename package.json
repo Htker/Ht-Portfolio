@@ -1,16 +1,22 @@
 {
-  "name": "ht-portfolio",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "dependencies": {
-    "pdf-parse": "^2.4.5"
-  }
+    "name": "ht-portfolio",
+    "version": "1.0.0",
+    "description": "Portfolio HTKER static website ready for Cloudflare Pages deployment",
+    "main": "index.js",
+    "scripts": {
+        "start": "python -m http.server 8000",
+        "serve": "python -m http.server 8000",
+        "check": "node --check assets/js/main.js"
+    },
+    "keywords": [
+        "portfolio",
+        "static-site",
+        "cloudflare-pages"
+    ],
+    "author": "Hotor Kodjo Evenunye",
+    "license": "ISC",
+    "type": "commonjs",
+    "dependencies": {
+        "pdf-parse": "^2.4.5"
+    }
 }
