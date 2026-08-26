@@ -29,7 +29,7 @@ const getPortfolioState = () => {
         projects: (window.portfolioProjects || []).map((project, index) => ({
             ...project,
             status: project.status || 'published',
-            order: project.order ? ? (index + 1),
+            order: project.order ?? (index + 1),
             categorySlug: project.categorySlug || slugify(project.category || 'Autres')
         }))
     };
